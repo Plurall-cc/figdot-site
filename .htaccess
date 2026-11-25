@@ -1,0 +1,65 @@
+# FigDot : généré par « node service/build.mjs » depuis service/lib/headers.mjs, la même table que le serveur local.
+# Ne pas modifier à la main : le prochain envoi l'écraserait. Chaque bloc ne vaut que si son module existe.
+
+# ---- HTTPS forcé ----
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^(.*)$ https://figdot.plurall.cc/$1 [R=301,L]
+</IfModule>
+
+# ---- Types de fichiers et jeu de caractères ----
+<IfModule mod_mime.c>
+AddDefaultCharset utf-8
+AddType "text/css; charset=utf-8" .css
+AddType "text/javascript; charset=utf-8" .js
+AddType "text/javascript; charset=utf-8" .mjs
+AddType "application/json; charset=utf-8" .json
+AddType "image/svg+xml" .svg
+AddType "image/png" .png
+AddType "image/x-icon" .ico
+AddType "font/woff2" .woff2
+AddType "text/csv; charset=utf-8" .csv
+AddType "application/manifest+json" .webmanifest
+AddType "text/plain; charset=utf-8" .txt
+AddType "application/xml; charset=utf-8" .xml
+</IfModule>
+
+# ---- Compression en transit ----
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css text/javascript application/json image/svg+xml text/csv application/manifest+json text/plain application/xml
+</IfModule>
+
+# ---- Qui peut afficher une page dans un cadre : repérer les pages d'intégration et le widget ----
+<IfModule mod_setenvif.c>
+SetEnvIf Request_URI "^/[^/]+/embed/" FIGDOT_EMBED
+SetEnvIf Request_URI "^/_essai/[^/]+/[^/]+/embed/" FIGDOT_EMBED
+SetEnvIf Request_URI "^/widgets/grist-brouillons/" FIGDOT_EMBED
+SetEnvIf Request_URI "^/embed\.js$" FIGDOT_C_EMBEDJS
+SetEnvIf Request_URI "(/|\.html)$" FIGDOT_C_HTML
+SetEnvIf Request_URI "\.woff2$" FIGDOT_C_FONT
+SetEnvIf Request_URI "^/_svc/service\.[0-9a-f]{8}\.css$" FIGDOT_C_HASHED
+SetEnvIf Request_URI "^/widgets/" FIGDOT_C_WIDGET
+</IfModule>
+
+# ---- En-têtes : cadre, indexation, cache ----
+<IfModule mod_headers.c>
+# cadre : tout site pour une page d'intégration ou le widget, FigDot seul pour le reste
+Header always set Content-Security-Policy "frame-ancestors *" env=FIGDOT_EMBED
+Header always set Content-Security-Policy "frame-ancestors 'self'" env=!FIGDOT_EMBED
+Header always set X-Frame-Options "SAMEORIGIN" env=!FIGDOT_EMBED
+Header always set X-Content-Type-Options "nosniff"
+# indexation : fermée partout (mode « closed »)
+Header always set X-Robots-Tag "noindex, nofollow"
+# cache : la dernière règle qui s'applique l'emporte
+Header set Cache-Control "public, max-age=86400"
+Header set Cache-Control "public, max-age=3600" env=FIGDOT_C_EMBEDJS
+Header set Cache-Control "public, max-age=300" env=FIGDOT_C_HTML
+Header set Cache-Control "public, max-age=31536000, immutable" env=FIGDOT_C_FONT
+Header set Cache-Control "public, max-age=31536000, immutable" env=FIGDOT_C_HASHED
+Header set Cache-Control "no-cache" env=FIGDOT_C_WIDGET
+</IfModule>
+
+# ---- Page 404 dans l'habillage du service ----
+ErrorDocument 404 /404.html

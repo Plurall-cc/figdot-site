@@ -1,0 +1,197 @@
+{
+ "format": "figdot.published-figure/2",
+ "lang": "fr",
+ "collection": {
+  "id": "aop-fromages-63",
+  "title": "Les AOP fromagères du Puy-de-Dôme",
+  "credit": "Données publiques de l’INAO, de l’Insee et de l’IGN.",
+  "licence": {
+   "id": "CC-BY-4.0",
+   "label": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/deed.fr"
+  }
+ },
+ "figure": {
+  "number": 3,
+  "slug": "aop-par-arrondissement"
+ },
+ "publicity": {
+  "state": "public",
+  "since": "2026-11-24",
+  "updated": "2026-11-24"
+ },
+ "address": {
+  "page": "/aop-fromages-63/aop-par-arrondissement/lait/",
+  "embed": "/aop-fromages-63/embed/aop-par-arrondissement/lait/"
+ },
+ "framing": {
+  "title": "Les AOP fromagères dans les cinq arrondissements",
+  "subtitle": {
+   "html": "Pour le lait et la fabrication, la zone de production du Saint-Nectaire tient dans <b>2</b> arrondissements : <b>46</b> communes dans celui d’Issoire, <b>3</b> dans celui de Clermont-Ferrand.",
+   "text": "Pour le lait et la fabrication, la zone de production du Saint-Nectaire tient dans 2 arrondissements : 46 communes dans celui d’Issoire, 3 dans celui de Clermont-Ferrand."
+  }
+ },
+ "variables": {
+  "unit": "communes de chaque arrondissement",
+  "option": {
+   "key": "lait",
+   "label": "Production du lait et fabrication",
+   "definition": "Les communes où le lait peut être produit et le fromage fabriqué. Seul le cahier des charges du Saint-Nectaire distingue cette zone de l’aire géographique ; pour les cinq autres appellations, c’est la même aire.",
+   "text": "production du lait et fabrication ; seul le Saint-Nectaire change, sa zone de production compte 49 communes du département au lieu de 463 ; les cinq autres appellations n’ont qu’une aire",
+   "default": false
+  },
+  "options": [
+   {
+    "key": "aire",
+    "label": "Aire entière, affinage compris",
+    "address": "/aop-fromages-63/aop-par-arrondissement/"
+   },
+   {
+    "key": "lait",
+    "label": "Production du lait et fabrication",
+    "address": "/aop-fromages-63/aop-par-arrondissement/lait/"
+   }
+  ]
+ },
+ "legend": {
+  "entries": [
+   {
+    "label": "aucune commune",
+    "fill": "#FFFFFF",
+    "stroke": "#DADADA"
+   },
+   {
+    "label": "1 à 10",
+    "fill": "#C6D3E8",
+    "stroke": "#DADADA"
+   },
+   {
+    "label": "11 à 50",
+    "fill": "#91ABD2",
+    "stroke": "#DADADA"
+   },
+   {
+    "label": "51 à 100",
+    "fill": "#2457A6",
+    "stroke": "#DADADA"
+   },
+   {
+    "label": "plus de 100",
+    "fill": "#123366",
+    "stroke": "#DADADA"
+   }
+  ],
+  "notes": [
+   "Nombre de communes par arrondissement : Ambert 58, Clermont-Ferrand 73, Issoire 133, Riom 155, Thiers 44.",
+   "Sayat n’est comprise que pour quatre parcelles dans l’aire du Cantal et dans celle du Salers ; elle est comptée comme une commune entière, comme dans la liste de l’INAO."
+  ],
+  "perimeter": "les 463 communes du Puy-de-Dôme au code officiel géographique 2025 ; 7 anciens codes de la liste INAO comptés dans leur commune actuelle, qui y figure déjà ; Sayat, comprise en partie dans l’aire du Cantal et du Salers, comptée entière"
+ },
+ "sources": [
+  {
+   "words": "Institut national de l’origine et de la qualité (INAO), liste des communes des aires AOC et AOP",
+   "date": "9 octobre 2025",
+   "link": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv"
+  },
+  {
+   "words": "INAO, aires et produits AOC, AOP et IGP",
+   "date": "10 mars 2025",
+   "link": "https://static.data.gouv.fr/resources/aires-et-produits-aoc-aop-et-igp/20251009-122906/2025-03-10-comagri-aires-produits.csv"
+  },
+  {
+   "words": "INAO, référentiel des produits sous signe officiel d’identification de la qualité et de l’origine",
+   "date": "31 décembre 2025",
+   "link": "https://static.data.gouv.fr/resources/referentiel-des-produits-sous-signe-officiel-didentification-de-la-qualite-et-de-lorigine-siqo/20251231-153733/2025-12-31-inao-ref-produit-siqo.csv"
+  },
+  {
+   "words": "INAO, cahier des charges de l’appellation Saint-Nectaire, version homologuée",
+   "date": "6 novembre 2025",
+   "link": "https://info.agriculture.gouv.fr/boagri/document_administratif-77cf54d6-a0da-46f7-9e10-76f1e8d7f30c/telechargement"
+  },
+  {
+   "words": "IGN, contours des communes ADMIN EXPRESS",
+   "date": "2025",
+   "link": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=ADMINEXPRESS-COG-CARTO-PE.2025:commune&CQL_FILTER=code_insee_du_departement='63'&OUTPUTFORMAT=application/json&SRSNAME=EPSG:2154&COUNT=1000"
+  },
+  {
+   "words": "Insee, code officiel géographique",
+   "date": "2025",
+   "link": "https://www.insee.fr/fr/statistiques/fichier/8377162/v_commune_2025.csv"
+  }
+ ],
+ "table": {
+  "headers": [
+   "",
+   "Ambert",
+   "Clermont-Ferrand",
+   "Issoire",
+   "Riom",
+   "Thiers"
+  ],
+  "rows": [
+   [
+    "Saint-Nectaire (zone de production)",
+    "0",
+    "3",
+    "46",
+    "0",
+    "0"
+   ],
+   [
+    "Fourme d’Ambert",
+    "58",
+    "22",
+    "88",
+    "94",
+    "30"
+   ],
+   [
+    "Bleu d’Auvergne",
+    "53",
+    "13",
+    "66",
+    "48",
+    "22"
+   ],
+   [
+    "Cantal",
+    "0",
+    "0",
+    "24",
+    "1",
+    "0"
+   ],
+   [
+    "Salers",
+    "0",
+    "0",
+    "24",
+    "1",
+    "0"
+   ],
+   [
+    "Fourme de Montbrison",
+    "5",
+    "0",
+    "0",
+    "0",
+    "0"
+   ]
+  ]
+ },
+ "theme": {
+  "name": "default",
+  "family": "\"Inter\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Helvetica, Arial, sans-serif"
+ },
+ "drawings": {
+  "288": "/aop-fromages-63/aop-par-arrondissement/fichiers/aop-par-arrondissement_lait.dessin-288.svg",
+  "552": "/aop-fromages-63/aop-par-arrondissement/fichiers/aop-par-arrondissement_lait.dessin-552.svg",
+  "600": "/aop-fromages-63/aop-par-arrondissement/fichiers/aop-par-arrondissement_lait.dessin-600.svg",
+  "852": "/aop-fromages-63/aop-par-arrondissement/fichiers/aop-par-arrondissement_lait.dessin-852.svg"
+ },
+ "downloads": {
+  "png": "/aop-fromages-63/aop-par-arrondissement/fichiers/aop-par-arrondissement_lait.png",
+  "svg": "/aop-fromages-63/aop-par-arrondissement/fichiers/aop-par-arrondissement_lait.svg",
+  "csv": "/aop-fromages-63/aop-par-arrondissement/fichiers/aop-par-arrondissement_lait.csv"
+ }
+}

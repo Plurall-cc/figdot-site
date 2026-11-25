@@ -1,0 +1,170 @@
+{
+ "format": "figdot.published-figure/2",
+ "lang": "fr",
+ "collection": {
+  "id": "aop-fromages-63",
+  "title": "Les AOP fromagères du Puy-de-Dôme",
+  "credit": "Données publiques de l’INAO, de l’Insee et de l’IGN.",
+  "licence": {
+   "id": "CC-BY-4.0",
+   "label": "CC BY 4.0",
+   "url": "https://creativecommons.org/licenses/by/4.0/deed.fr"
+  }
+ },
+ "figure": {
+  "number": 1,
+  "slug": "carte-aop-fromageres"
+ },
+ "publicity": {
+  "state": "public",
+  "since": "2026-11-24",
+  "updated": "2026-11-24"
+ },
+ "address": {
+  "page": "/aop-fromages-63/carte-aop-fromageres/",
+  "embed": "/aop-fromages-63/embed/carte-aop-fromageres/"
+ },
+ "framing": {
+  "title": "Six AOP fromagères sur les communes du Puy-de-Dôme",
+  "subtitle": {
+   "html": "Dans l’aire entière, affinage compris, chacune des <b>463</b> communes relève d’au moins une AOP fromagère, et <b>24</b> en relèvent de cinq.",
+   "text": "Dans l’aire entière, affinage compris, chacune des 463 communes relève d’au moins une AOP fromagère, et 24 en relèvent de cinq."
+  }
+ },
+ "variables": {
+  "unit": "communes, selon le nombre d’AOP fromagères dont elles relèvent",
+  "option": {
+   "key": "aire",
+   "label": "Aire entière, affinage compris",
+   "definition": "Les communes de l’aire géographique de chaque appellation, telle que la donne la liste de l’INAO ; elle comprend l’affinage.",
+   "text": "aire géographique entière, affinage compris",
+   "default": true
+  },
+  "options": [
+   {
+    "key": "aire",
+    "label": "Aire entière, affinage compris",
+    "address": "/aop-fromages-63/carte-aop-fromageres/"
+   },
+   {
+    "key": "lait",
+    "label": "Production du lait et fabrication",
+    "address": "/aop-fromages-63/carte-aop-fromageres/lait/"
+   }
+  ]
+ },
+ "legend": {
+  "entries": [
+   {
+    "label": "1 AOP fromagère",
+    "fill": "#C6D3E8"
+   },
+   {
+    "label": "2 AOP fromagères",
+    "fill": "#91ABD2"
+   },
+   {
+    "label": "3 AOP fromagères",
+    "fill": "#5F8CCC"
+   },
+   {
+    "label": "4 AOP fromagères",
+    "fill": "#2457A6"
+   },
+   {
+    "label": "5 AOP fromagères",
+    "fill": "#123366"
+   },
+   {
+    "label": "limite du département",
+    "shape": "line",
+    "stroke": "#111111",
+    "width": 1.5
+   }
+  ],
+  "notes": [
+   "Carte reconstruite à partir des listes de communes de 2025 ; elle ne reproduit pas la carte de l’aire publiée par la direction départementale des territoires en 2018.",
+   "Sayat n’est comprise que pour quatre parcelles dans l’aire du Cantal et dans celle du Salers ; elle est comptée comme une commune entière, comme dans la liste de l’INAO."
+  ],
+  "perimeter": "les 463 communes du Puy-de-Dôme au code officiel géographique 2025 ; 7 anciens codes de la liste INAO comptés dans leur commune actuelle, qui y figure déjà ; Sayat, comprise en partie dans l’aire du Cantal et du Salers, comptée entière"
+ },
+ "sources": [
+  {
+   "words": "Institut national de l’origine et de la qualité (INAO), liste des communes des aires AOC et AOP",
+   "date": "9 octobre 2025",
+   "link": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv"
+  },
+  {
+   "words": "INAO, aires et produits AOC, AOP et IGP",
+   "date": "10 mars 2025",
+   "link": "https://static.data.gouv.fr/resources/aires-et-produits-aoc-aop-et-igp/20251009-122906/2025-03-10-comagri-aires-produits.csv"
+  },
+  {
+   "words": "INAO, référentiel des produits sous signe officiel d’identification de la qualité et de l’origine",
+   "date": "31 décembre 2025",
+   "link": "https://static.data.gouv.fr/resources/referentiel-des-produits-sous-signe-officiel-didentification-de-la-qualite-et-de-lorigine-siqo/20251231-153733/2025-12-31-inao-ref-produit-siqo.csv"
+  },
+  {
+   "words": "INAO, cahier des charges de l’appellation Saint-Nectaire, version homologuée",
+   "date": "6 novembre 2025",
+   "link": "https://info.agriculture.gouv.fr/boagri/document_administratif-77cf54d6-a0da-46f7-9e10-76f1e8d7f30c/telechargement"
+  },
+  {
+   "words": "IGN, contours des communes ADMIN EXPRESS",
+   "date": "2025",
+   "link": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=ADMINEXPRESS-COG-CARTO-PE.2025:commune&CQL_FILTER=code_insee_du_departement='63'&OUTPUTFORMAT=application/json&SRSNAME=EPSG:2154&COUNT=1000"
+  },
+  {
+   "words": "Insee, code officiel géographique",
+   "date": "2025",
+   "link": "https://www.insee.fr/fr/statistiques/fichier/8377162/v_commune_2025.csv"
+  }
+ ],
+ "table": {
+  "headers": [
+   "AOP fromagères par commune",
+   "communes"
+  ],
+  "rows": [
+   [
+    "0",
+    "0"
+   ],
+   [
+    "1",
+    "158"
+   ],
+   [
+    "2",
+    "112"
+   ],
+   [
+    "3",
+    "166"
+   ],
+   [
+    "4",
+    "3"
+   ],
+   [
+    "5",
+    "24"
+   ]
+  ]
+ },
+ "theme": {
+  "name": "default",
+  "family": "\"Inter\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Helvetica, Arial, sans-serif"
+ },
+ "drawings": {
+  "288": "/aop-fromages-63/carte-aop-fromageres/fichiers/carte-aop-fromageres_aire.dessin-288.svg",
+  "552": "/aop-fromages-63/carte-aop-fromageres/fichiers/carte-aop-fromageres_aire.dessin-552.svg",
+  "600": "/aop-fromages-63/carte-aop-fromageres/fichiers/carte-aop-fromageres_aire.dessin-600.svg",
+  "852": "/aop-fromages-63/carte-aop-fromageres/fichiers/carte-aop-fromageres_aire.dessin-852.svg"
+ },
+ "downloads": {
+  "png": "/aop-fromages-63/carte-aop-fromageres/fichiers/carte-aop-fromageres_aire.png",
+  "svg": "/aop-fromages-63/carte-aop-fromageres/fichiers/carte-aop-fromageres_aire.svg",
+  "csv": "/aop-fromages-63/carte-aop-fromageres/fichiers/carte-aop-fromageres_aire.csv"
+ }
+}

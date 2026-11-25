@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FigDot — brouillons</title>
+<link rel="stylesheet" href="./fonts.css">
+<style>
+ :root { --ink: #1f2328; --ink-3: #59636e; --line: #d1d9e0; --paper: #ffffff; --ok: #1a7f37; --err: #b42318; }
+ html, body { margin: 0; background: var(--paper); color: var(--ink); font: 14px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif; }
+ header { display: flex; gap: 12px; align-items: center; justify-content: space-between; padding: 8px; border-bottom: 1px solid var(--line); }
+ header h1 { font-size: 14px; margin: 0; font-weight: 600; }
+ #titre { color: var(--ink-3); font-size: 13px; }
+ button { font: inherit; padding: 6px 12px; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); border-radius: 4px; cursor: pointer; }
+ button:disabled { background: var(--paper); color: var(--ink-3); border-color: var(--line); cursor: default; }
+ #message { margin: 8px; font-size: 13px; color: var(--ink-3); }
+ #message.erreur { color: var(--err); } #message.ok { color: var(--ok); }
+ #avertissement { margin: 0 8px; font-size: 13px; color: #8a4b00; }
+ #apercu { padding: 8px; overflow-x: auto; } #apercu svg { display: block; max-width: 100%; height: auto; }
+</style>
+<script src="https://docs.getgrist.com/grist-plugin-api.js"></script>
+</head>
+<body>
+<header><div><h1>FigDot — brouillons</h1><div id="titre"></div></div><button id="envoyer" disabled>Envoyer à FigDot</button></header>
+<p id="message" role="status">Sélectionnez une ligne de la table des figures.</p>
+<p id="avertissement" role="status"></p>
+<div id="apercu"></div>
+<script type="module" src="./app.mjs"></script>
+</body>
+</html>
