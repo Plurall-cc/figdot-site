@@ -9,6 +9,29 @@ RewriteCond %{HTTP:X-Forwarded-Proto} !=https
 RewriteRule ^(.*)$ https://figdot.plurall.cc/$1 [R=301,L]
 </IfModule>
 
+# ---- Fichiers cachés refusés, dossiers jamais listés, barre finale sur l'adresse du site (FD08) ----
+<IfModule mod_rewrite.c>
+RewriteEngine On
+# tout fichier ou dossier dont le nom commence par un point (.git, .env…) : refusé, sauf /.well-known/ (renouvellement du certificat)
+RewriteCond %{REQUEST_URI} "(^|/)\."
+RewriteCond %{REQUEST_URI} "!^/\.well-known/"
+RewriteRule ^ - [F]
+# un dossier demandé sans barre finale : la barre, sur l'adresse du site
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^(.*[^/])$ https://figdot.plurall.cc/$1/ [R=301,L]
+# un dossier sans index.html : 404, jamais la liste de son contenu
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.html !-f
+RewriteRule ^ - [R=404,L]
+</IfModule>
+
+# ---- Fichiers cachés refusés, sans mod_rewrite (FD08) ----
+<IfModule !mod_rewrite.c>
+<IfModule mod_alias.c>
+RedirectMatch 403 "(^|/)\.(?!well-known/)"
+</IfModule>
+</IfModule>
+
 # ---- Types de fichiers et jeu de caractères ----
 <IfModule mod_mime.c>
 AddDefaultCharset utf-8

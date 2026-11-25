@@ -35,7 +35,7 @@ function checkResult(name, r, meta) {
   if (blank(r.perimeter)) bad("perimeter");
   if (r.encoded == null) bad("encoded");
   if (r.sources == null && meta.sources == null && blank(r.dating)) bad("dating");
-  for (const k of ["unit", "option_label", "source_words", "source_link", "source_no_link"]) if (k in r && r[k] != null && blank(r[k])) bad(k);
+  for (const k of ["unit", "option_label", "source_words", "source_link", "source_no_link", "source_licence"]) if (k in r && r[k] != null && blank(r[k])) bad(k);
 }
 
 // A link to the origin of a source (D42): an absolute http(s) address. Never made up.
@@ -45,6 +45,11 @@ const checkLink = (name, where, l, noLink) => {
   // D65 (FD07) : « no_link » dit pourquoi la source n'a pas d'adresse publique ; il exclut un lien
   if (noLink != null && blank(noLink)) throw new Error(`${name}: ${where}: no_link is blank (give the reason there is no public address, or drop it)`);
   if (noLink != null && !blank(l)) throw new Error(`${name}: ${where}: give either a link or no_link, not both`);
+};
+// D71 (FD08) : la licence d'une source, telle que relevée dans la provenance de la collection. Facultative
+// (une source sans licence relevée l'affiche comme « non relevée ») ; jamais vide quand elle est donnée.
+const checkLicence = (name, where, lic) => {
+  if (lic != null && (typeof lic !== "string" || blank(lic))) throw new Error(`${name}: ${where}: licence must be the words of the licence as recorded in the provenance (a non-empty string), or be left out`);
 };
 
 // Either one source in words with one date sentence, or a list of sources, each
@@ -63,10 +68,11 @@ function checkSources(name, r, checkFile) {
       }
       if (s.as_of != null && !/^\d{4}(-\d{2}(-\d{2})?)?$/.test(String(s.as_of))) throw new Error(`${name}: source ${i + 1}: as_of "${s.as_of}" is not YYYY, YYYY-MM or YYYY-MM-DD`);
       checkLink(name, `source ${i + 1}`, s.link, s.no_link);
+      checkLicence(name, `source ${i + 1}`, s.licence);
     }
     if (!blank(r.dating)) throw new Error(`${name}: give either sources (each with its date) or dating, not both`);
   } else if (blank(r.source_words)) throw new Error(`${name}: no source_words and no sources`);
-  else checkLink(name, "source", r.source_link, r.source_no_link);
+  else { checkLink(name, "source", r.source_link, r.source_no_link); checkLicence(name, "source", r.source_licence); }
 }
 
 // The sources of a result that have neither a link to their origin (D42, FD06) nor a stated
@@ -86,9 +92,9 @@ export function linkMessage(title, missing, total) {
 function polish(r, locale) {
   const t = locale.typo;
   r.subtitle = { html: t(r.subtitle.html), text: t(r.subtitle.text) };
-  for (const k of ["perimeter", "unit", "option_label", "source_words", "source_no_link", "dating"]) if (r[k] != null) r[k] = t(r[k]);
+  for (const k of ["perimeter", "unit", "option_label", "source_words", "source_no_link", "source_licence", "dating"]) if (r[k] != null) r[k] = t(r[k]);
   if (r.notes) r.notes = r.notes.map(t);
-  if (r.sources) r.sources = r.sources.map(s => ({ ...s, words: t(s.words), ...(s.no_link != null ? { no_link: t(s.no_link) } : {}) }));
+  if (r.sources) r.sources = r.sources.map(s => ({ ...s, words: t(s.words), ...(s.no_link != null ? { no_link: t(s.no_link) } : {}), ...(s.licence != null ? { licence: t(s.licence) } : {}) }));
 }
 
 // A spec may name a collection palette entry as "collection:<palette>.<key>".
@@ -116,6 +122,7 @@ export function prepareResult(name, meta, raw, locale, { checkFile } = {}) {
   result.source_words = result.source_words || meta.source_words;
   result.source_link = result.source_link ?? meta.source_link;
   result.source_no_link = result.source_no_link ?? meta.source_no_link;
+  result.source_licence = result.source_licence ?? meta.source_licence;
   result.unit = result.unit ?? meta.unit;
   result.sources = result.sources ?? meta.sources;
   checkSources(name, result, checkFile);

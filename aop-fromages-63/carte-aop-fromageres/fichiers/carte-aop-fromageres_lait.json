@@ -97,32 +97,38 @@
   {
    "words": "Institut national de l’origine et de la qualité (INAO), liste des communes des aires AOC et AOP",
    "date": "9 octobre 2025",
-   "link": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv"
+   "link": "https://static.data.gouv.fr/resources/aires-geographiques-des-aoc-aop/20251009-122320/2025-10-09-comagri-communes-aires-ao.csv",
+   "licence": "Licence Ouverte (Etalab, fr-lo)"
   },
   {
    "words": "INAO, aires et produits AOC, AOP et IGP",
    "date": "10 mars 2025",
-   "link": "https://static.data.gouv.fr/resources/aires-et-produits-aoc-aop-et-igp/20251009-122906/2025-03-10-comagri-aires-produits.csv"
+   "link": "https://static.data.gouv.fr/resources/aires-et-produits-aoc-aop-et-igp/20251009-122906/2025-03-10-comagri-aires-produits.csv",
+   "licence": "Licence Ouverte (fr-lo)"
   },
   {
    "words": "INAO, référentiel des produits sous signe officiel d’identification de la qualité et de l’origine",
    "date": "31 décembre 2025",
-   "link": "https://static.data.gouv.fr/resources/referentiel-des-produits-sous-signe-officiel-didentification-de-la-qualite-et-de-lorigine-siqo/20251231-153733/2025-12-31-inao-ref-produit-siqo.csv"
+   "link": "https://static.data.gouv.fr/resources/referentiel-des-produits-sous-signe-officiel-didentification-de-la-qualite-et-de-lorigine-siqo/20251231-153733/2025-12-31-inao-ref-produit-siqo.csv",
+   "licence": "Licence Ouverte 2.0"
   },
   {
    "words": "INAO, cahier des charges de l’appellation Saint-Nectaire, version homologuée",
    "date": "6 novembre 2025",
-   "link": "https://info.agriculture.gouv.fr/boagri/document_administratif-77cf54d6-a0da-46f7-9e10-76f1e8d7f30c/telechargement"
+   "link": "https://info.agriculture.gouv.fr/boagri/document_administratif-77cf54d6-a0da-46f7-9e10-76f1e8d7f30c/telechargement",
+   "licence": "acte administratif publié au Bulletin officiel ; réutilisation libre des informations publiques (code des relations entre le public et l’administration, art. L. 321-1)"
   },
   {
    "words": "IGN, contours des communes ADMIN EXPRESS",
    "date": "2025",
-   "link": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=ADMINEXPRESS-COG-CARTO-PE.2025:commune&CQL_FILTER=code_insee_du_departement='63'&OUTPUTFORMAT=application/json&SRSNAME=EPSG:2154&COUNT=1000"
+   "link": "https://data.geopf.fr/wfs/ows?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&TYPENAMES=ADMINEXPRESS-COG-CARTO-PE.2025:commune&CQL_FILTER=code_insee_du_departement='63'&OUTPUTFORMAT=application/json&SRSNAME=EPSG:2154&COUNT=1000",
+   "licence": "Licence Ouverte 2.0"
   },
   {
    "words": "Insee, code officiel géographique",
    "date": "2025",
-   "link": "https://www.insee.fr/fr/statistiques/fichier/8377162/v_commune_2025.csv"
+   "link": "https://www.insee.fr/fr/statistiques/fichier/8377162/v_commune_2025.csv",
+   "licence": "Licence Ouverte (fr-lo)"
   }
  ],
  "table": {

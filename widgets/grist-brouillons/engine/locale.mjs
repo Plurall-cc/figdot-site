@@ -15,6 +15,7 @@ export const LABELS = {
     some_undated: "Some of what is shown is not dated.", source_undated: "date not recorded",
     not_measured: "not measured", and: "and",
     unlabelled_one: "{n} label not shown", unlabelled_other: "{n} labels not shown",
+    licence: "Licence", licence_unknown: "not recorded",
   },
   fr: {
     unit: "Unité", option: "Option", perimeter: "Périmètre", source: "Source", sources: "Sources",
@@ -22,6 +23,7 @@ export const LABELS = {
     some_undated: "Une partie de ce qui est montré n’est pas datée.", source_undated: "date non relevée",
     not_measured: "non mesuré", and: "et",
     unlabelled_one: "{n} étiquette non affichée", unlabelled_other: "{n} étiquettes non affichées",
+    licence: "Licence", licence_unknown: "non relevée",
   },
 };
 const NUMBERS = { en: "en-US", fr: "fr-FR" };

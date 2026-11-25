@@ -213,6 +213,7 @@ export function capabilities(theme, { tokens } = {}) {
     traced("étendue", ["un trait par ligne, du minimum au maximum (gris intermédiaire), extrémités en points (mise en avant)", "valeurs aux extrémités"]),
     traced("nuage", ["un point par ligne (trace.point, mise en avant)", "droite de repère (gris intermédiaire, pointillé du repère)", "graduations"]),
     traced("frise", ["une ligne par série (gris intermédiaire)", "un point par événement daté (mise en avant)", "graduations de dates"]),
+    traced("essaim", ["un point par individu (trace.point), en retrait (gris intermédiaire) ou mis en avant", "étiquettes directes des points mis en avant", "graduations"]),
     { form: "figure sur mesure", engine: false, status: "se construit", why: [],
       carries: ["tout jeton que le contrat nomme (couleurs, palettes, tailles, graisses, traits, espaces, trace)"],
       cannot: ["ce que le code de la figure fixerait lui-même : interdit, et vérifié par tests/literals.test.mjs"] },
@@ -228,7 +229,7 @@ export function capabilities(theme, { tokens } = {}) {
 // déclare, si elle veut être contrôlée, par `"capability"` dans figure.json (« carte », « figure sur
 // mesure »…). Sans déclaration, le moteur n'en sait rien : la figure reste refusée par son propre
 // dessin quand la charte lui manque (palette trop courte), jamais par ce verdict.
-export const CAPABILITIES = ["barres", "matrice", "carte", "pentes", "étendue", "nuage", "frise", "figure sur mesure"];
+export const CAPABILITIES = ["barres", "matrice", "carte", "pentes", "étendue", "nuage", "frise", "essaim", "figure sur mesure"];
 
 // La capacité que demande une forme déclarative, d'après son spec. Une matrice peint ses classes avec la rampe
 // séquentielle de la charte, sauf si son spec nomme la palette divergente : elle ne dépend alors pas de la rampe.
