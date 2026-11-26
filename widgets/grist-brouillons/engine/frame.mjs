@@ -32,7 +32,8 @@ export function footerMentions(result, locale = EN) {
   if (result.option_label) ms.push({ key: "option", label: L.option, lines: [result.option_label] });
   if (result.perimeter) ms.push({ key: "perimeter", label: L.perimeter, lines: [result.perimeter] });
   if (result.sources) ms.push({ key: "sources", label: result.sources.length > 1 ? L.sources : L.source,
-    lines: result.sources.map(s => `${s.words} (${s.as_of ? locale.formatDate(s.as_of) : L.source_undated})`) });
+    // FD10 : numérotées quand un dessin y renvoie (« [2] » dans la chaîne d'étapes)
+    lines: result.sources.map((s, i) => `${result.numbered_sources ? `[${i + 1}] ` : ""}${s.words} (${s.as_of ? locale.formatDate(s.as_of) : L.source_undated})`) });
   else ms.push({ key: "source", label: L.source, lines: [`${result.source_words}. ${result.dating}`] });
   return ms;
 }
@@ -175,7 +176,8 @@ export function composeExport({ meta, result, drawings, theme, width, target = "
   const desc = typo(result.subtitle.text) + " " + ruleLine(result, locale);
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${n1(width)}" height="${height}" `
     + `viewBox="0 0 ${n1(width)} ${height}" font-family="${esc(familyFor(T, target))}" data-target="${esc(target)}" `
-    + `role="img" aria-label="${esc(title + ". " + typo(result.subtitle.text))}">`
+    // FD10 : un dessin qui expose sa structure (le tableau de texte : role="table") ne doit pas être rendu muet par role="img"
+    + `role="${drawings.some(d => d.structure) ? "group" : "img"}" aria-label="${esc(title + ". " + typo(result.subtitle.text))}">`
     + `<title>${esc(title)}</title><desc>${esc(desc)}</desc>`
     + rect(0, 0, width, height, { fill: C.paper })
     + bits.join("") + `</svg>`;

@@ -32,6 +32,8 @@ export const BARS = {
     classes: { type: "object" },
     mark: { type: "object", properties: { at: { type: "number" }, label: { type: "string" } } },
     tail_header: { type: "string" },
+    // FD10 : une seconde colonne de nombres, d'une autre nature que la barre ; jamais dessinée
+    extra: { type: "object", required: ["header"], additionalProperties: false, properties: { header: { type: "string", minLength: 1 }, unit: { type: "string", minLength: 1 }, decimals: { type: "number", minimum: 0, maximum: 6 } } },
   } },
 };
 

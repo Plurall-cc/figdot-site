@@ -184,6 +184,7 @@ export function capabilities(theme, { tokens } = {}) {
   const hi = contrast(D.highlight, paper);
   const barsWhy = [];
   if (hi < th.graphic) barsWhy.push(`la couleur de mise en avant (${D.highlight}) fait ${r2(hi)}:1 sur le papier, il faut ${th.graphic}:1`);
+  const textWhy = text.map(([k, role, c]) => `l'encre des ${k === "label" ? "libellés" : k === "value" ? "valeurs" : "textes secondaires"} (${role}) fait ${r2(c)}:1, il faut ${String(th.text).replace(".", ",")}:1`);
   for (const [k, role, c] of text) barsWhy.push(`l'encre des ${k === "label" ? "libellés" : k === "value" ? "valeurs" : "textes secondaires"} (${role}) fait ${r2(c)}:1, il faut ${String(th.text).replace(".", ",")}:1`);
 
   const status = (why, warn = [], derived = []) => (why.length ? "ne se construit pas" : warn.length || derived.length ? "se construit, avec avertissements" : "se construit");
@@ -201,7 +202,7 @@ export function capabilities(theme, { tokens } = {}) {
   };
   const forms = [
     { form: "barres", engine: true, status: status(barsWhy), why: barsWhy,
-      carries: ["mise en avant, retrait, couleurs des classes", "encres des libellés, des valeurs et des textes secondaires", "repère en pointillé", "part des libellés", "largeur d'empilement des libellés"],
+      carries: ["mise en avant, retrait, couleurs des classes", "encres des libellés, des valeurs et des textes secondaires", "repère en pointillé", "part des libellés", "largeur d'empilement des libellés", "seconde colonne de nombres, non dessinée (FD10)"],
       cannot: ["l'étiquetage direct : le moteur ne sait que la légende"] },
     { form: "matrice", engine: true, status: status(mat.classed.why, mat.classed.warnings, mat.derived), why: mat.classed.why, warnings: mat.classed.warnings, derived: mat.derived,
       carries: [`rampe séquentielle (${mat.theme.data.sequential.length} marches${mat.derived.length ? ", dont des marches dérivées" : ""}), divergente (${D.diverging.length})`, "espace entre cellules, cellule minimale, bascule encre ou papier", "états nommés (non mesuré, non classé)"],
@@ -215,7 +216,16 @@ export function capabilities(theme, { tokens } = {}) {
     traced("frise", ["une ligne par série (gris intermédiaire)", "un point par événement daté (mise en avant)", "graduations de dates"]),
     traced("essaim", ["un point par individu (trace.point), en retrait (gris intermédiaire) ou mis en avant", "étiquettes directes des points mis en avant", "graduations"]),
     traced("radar", ["des axes ramenés à une même échelle (normalisation dite par le spec, écrite en note)", "une série mise en avant (trace, sommets), les autres au gris intermédiaire", "anneaux et axes au filet", "noms d'axes directs"]),
+    traced("chaîne", ["des étapes dans l'ordre du spec, numérotées, reliées par des flèches (encre des textes secondaires)", "des cases d'acteurs au filet du gris intermédiaire, une case vide en pointillé du repère, avec sa mention", "renvois numérotés vers les sources"]),
     traced("flux", ["des nœuds (gris intermédiaire, mise en avant), des liens en bandes (filet de la charte, bordés du papier ; mis en avant)", "étiquettes directes des nœuds avec leur valeur", "liens trop fins au trait fin, et leur nombre dit"]),
+    // FD10 : les barres empilées demandent ce que demandent les barres ; la classe inconnue prend le style « non mesuré » de la charte
+    { form: "barres empilées", engine: true, status: status(barsWhy), why: barsWhy,
+      carries: ["une couleur par classe (palette de la charte ou de la collection), dans l'ordre du spec", "classe inconnue au style « non mesuré » (papier et contour)", "étiquette directe de chaque segment, à l'encre ou au papier selon le contraste", "total de chaque barre"],
+      cannot: ["un motif par classe : aucune charte du dépôt n'en déclare"] },
+    // FD10 : le tableau de texte ne demande que les encres des textes
+    { form: "tableau", engine: true, status: status(textWhy), why: textWhy,
+      carries: ["encres des libellés, des valeurs et des textes secondaires", "filets (color.line, trait fin ; sous l'en-tête, trait régulier)", "retour à la ligne mesuré, fiches aux petites largeurs"],
+      cannot: ["une cellule chiffrée mise en forme : les cellules sont du texte", "une cellule fusionnée, une couleur de fond par cellule"] },
     { form: "figure sur mesure", engine: false, status: "se construit", why: [],
       carries: ["tout jeton que le contrat nomme (couleurs, palettes, tailles, graisses, traits, espaces, trace)"],
       cannot: ["ce que le code de la figure fixerait lui-même : interdit, et vérifié par tests/literals.test.mjs"] },
@@ -231,7 +241,7 @@ export function capabilities(theme, { tokens } = {}) {
 // déclare, si elle veut être contrôlée, par `"capability"` dans figure.json (« carte », « figure sur
 // mesure »…). Sans déclaration, le moteur n'en sait rien : la figure reste refusée par son propre
 // dessin quand la charte lui manque (palette trop courte), jamais par ce verdict.
-export const CAPABILITIES = ["barres", "matrice", "carte", "pentes", "étendue", "nuage", "frise", "essaim", "flux", "radar", "figure sur mesure"];
+export const CAPABILITIES = ["barres", "matrice", "carte", "pentes", "étendue", "nuage", "frise", "essaim", "flux", "radar", "barres empilées", "tableau", "chaîne", "figure sur mesure"];
 
 // La capacité que demande une forme déclarative, d'après son spec. Une matrice peint ses classes avec la rampe
 // séquentielle de la charte, sauf si son spec nomme la palette divergente : elle ne dépend alors pas de la rampe.

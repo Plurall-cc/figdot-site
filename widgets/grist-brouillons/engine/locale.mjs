@@ -18,6 +18,10 @@ export const LABELS = {
     thin_links_one: "{n} link thinner than {px} px, drawn as a fine line", thin_links_other: "{n} links thinner than {px} px, drawn as fine lines",
     radar_axis: "{axis}: from {min} (centre) to {max} (edge)", radar_axis_reversed: "{axis}: from {min} (edge) to {max} (centre), reversed",
     licence: "Licence", licence_unknown: "not recorded",
+    stacked_moved_one: "{n} segment too narrow for its label: {list}.", stacked_moved_other: "{n} segments too narrow for their label: {list}.",
+    stacked_rounded: "Shares are rounded: those of a bar may not add up to exactly 100%.",
+    chain_empty: "no public source",
+    stacked_band: "The last bar shares out the same total, {total}, by {criterion}; it is drawn at its own scale, not at the scale of the bars above.",
   },
   fr: {
     unit: "Unité", option: "Option", perimeter: "Périmètre", source: "Source", sources: "Sources",
@@ -28,6 +32,10 @@ export const LABELS = {
     thin_links_one: "{n} lien de moins de {px} px, dessiné au trait fin", thin_links_other: "{n} liens de moins de {px} px, dessinés au trait fin",
     radar_axis: "{axis} : de {min} (centre) à {max} (bord)", radar_axis_reversed: "{axis} : de {min} (bord) à {max} (centre), sens inversé",
     licence: "Licence", licence_unknown: "non relevée",
+    stacked_moved_one: "{n} segment trop étroit pour son étiquette : {list}.", stacked_moved_other: "{n} segments trop étroits pour leur étiquette : {list}.",
+    stacked_rounded: "Les parts sont arrondies : celles d'une barre peuvent ne pas faire exactement 100 %.",
+    chain_empty: "aucune source publique",
+    stacked_band: "La dernière barre répartit le même total, {total}, selon {criterion} ; elle est dessinée à sa propre échelle, pas à celle des barres du dessus.",
   },
 };
 const NUMBERS = { en: "en-US", fr: "fr-FR" };

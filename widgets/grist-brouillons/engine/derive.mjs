@@ -79,7 +79,7 @@ export function deriveGrey(ink, paper, target = GREY_TARGET) {
 // Rend { theme, derived: [phrase] } ; `theme` est la même charte, sans copie profonde, quand rien n'est dérivé.
 // Les formes classées (matrice, carte) demandent la rampe et le gris ; les formes à traits de FD06
 // (pentes, étendue, nuage, frise) ne demandent que le gris intermédiaire, pour leurs traits secondaires.
-export const CLASSED = ["matrice", "carte"], GREY_ONLY = ["pentes", "étendue", "nuage", "frise", "essaim", "flux", "radar"];
+export const CLASSED = ["matrice", "carte"], GREY_ONLY = ["pentes", "étendue", "nuage", "frise", "essaim", "flux", "radar", "chaîne"];
 export function completeTheme(theme, capability) {
   if (!CLASSED.includes(capability) && !GREY_ONLY.includes(capability)) return { theme, derived: [] };
   const C = theme.color, D = theme.data, paper = C.paper, th = THRESHOLDS;
