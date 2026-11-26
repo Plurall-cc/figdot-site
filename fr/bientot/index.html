@@ -27,6 +27,28 @@ button{font:inherit;cursor:pointer}
 @media (prefers-reduced-motion:reduce){.fd-stage{height:auto;display:flex;flex-direction:column;gap:28px}.fd-sc{position:static;opacity:1!important;transform:none!important;transition:none}.fd-grow,.fd-pop{transform:none!important;transition:none}.fd-ctl,.fd-dots{display:none!important}}
 button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid #374AC8;outline-offset:2px}
 
+.fd-flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));column-gap:28px;row-gap:28px}
+.fd-st{display:flex;flex-direction:column;gap:12px;min-width:0;position:relative}
+.fd-st-box{box-sizing:border-box;min-height:84px;padding:12px;border:2px solid #374AC8;background:#FFFFFF;color:#1A2270;display:flex;flex-direction:column;justify-content:center;gap:4px;text-align:center}
+.fd-st-box b{font-size:16px;line-height:1.25}
+.fd-st-who{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#374AC8}
+.fd-st p{margin:0;font-size:15px;line-height:1.5;color:#2A2D33}
+.fd-st-figdot .fd-st-box{background:#374AC8;border-color:#374AC8;color:#FFFFFF}.fd-st-figdot .fd-st-who{color:#E8EBFA}
+.fd-st-charte .fd-st-box{background:#E8EBFA;border-style:dashed}
+.fd-st-data,.fd-st-agent,.fd-st-review,.fd-st-figdot,.fd-st-cite{grid-row:2}
+.fd-st-charte{grid-row:1;grid-column:1/5;display:grid;grid-template-columns:subgrid;align-items:center}
+.fd-st-charte>p{grid-column:2/4;grid-row:1;text-align:right}.fd-st-charte>.fd-st-box{grid-column:4;grid-row:1;position:relative}
+.fd-st:not(.fd-st-charte):not(.fd-st-cite)>.fd-st-box::after{content:"";position:absolute;top:42px;right:-24px;width:20px;border-top:2px solid #1A2270}
+.fd-st:not(.fd-st-charte):not(.fd-st-cite)>.fd-st-box::before{content:"";position:absolute;top:38px;right:-26px;border:5px solid transparent;border-left:7px solid #1A2270;border-right:0}
+.fd-st-charte>.fd-st-box::after{content:"";position:absolute;left:50%;bottom:-26px;height:22px;border-left:2px dashed #1A2270}
+@media (max-width:860px){
+.fd-flow{grid-template-columns:minmax(0,1fr);row-gap:0}
+.fd-st{grid-row:auto!important;grid-column:auto!important;display:flex!important;flex-direction:column!important;padding:0 0 28px 28px;border-left:2px solid #374AC8;margin-left:8px}
+.fd-st-cite{border-left-color:transparent;padding-bottom:0}
+.fd-st-charte{border-left-style:dashed}
+.fd-st::before{content:"";position:absolute;left:-9px;top:0;width:12px;height:12px;border-radius:50%;background:#374AC8;border:2px solid #FFFFFF}
+.fd-st-box{min-height:0;text-align:left;align-items:flex-start}.fd-st-charte{align-items:stretch}.fd-st-charte>p{text-align:left}
+.fd-st>.fd-st-box::after,.fd-st>.fd-st-box::before{display:none}}
 html:not(.fd-js) .fd-stage{height:auto;display:flex;flex-direction:column;gap:28px}
 html:not(.fd-js) .fd-sc{position:static;opacity:1;transform:none;pointer-events:auto}
 html:not(.fd-js) .fd-grow,html:not(.fd-js) .fd-pop{transform:none}
@@ -82,8 +104,8 @@ html:not(.fd-js) .fd-ctl,html:not(.fd-js) .fd-dots{display:none}
 <h1 style="margin: 0; font-size: clamp(34px, 6vw, 48px); line-height: 1.12; font-weight: 700; color: #1A2270">Bientôt</h1>
 <p style="margin: 0; font-size: 19px; color: #2A2D33; max-width: 640px">Ce bouton mène à une partie de FigDot qui n'est pas encore ouverte. Voici ce qui marche aujourd'hui, et ce qui arrive.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 32px">
-<section style="flex: 1 1 320px; min-width: 0; background: #FFFFFF; border: 2px solid #374AC8; padding: 28px; display: flex; flex-direction: column; gap: 12px"><h2 style="margin: 0; font-size: 24px; line-height: 1.2; font-weight: 700; color: #1A2270">Ce qui marche aujourd'hui</h2><ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 16px; color: #2A2D33"><li>Une collection publique de démonstration, <a href="/aop-fromages-63/">Les AOP fromagères du Puy-de-Dôme</a> : trois figures, chacune avec son cadrage, ses options, ses définitions et ses sources datées et liées.</li><li>Pour chaque figure : une adresse stable par option, les données (CSV), l'image (SVG, PNG), et un code d'intégration que l'on compose module par module.</li><li>8 formes au catalogue : barres, matrice, carte, graphique de pentes, barres d'étendue, nuage de points, frise, nuage en essaim.</li><li>Le widget FigDot pour Grist, qui prépare des brouillons de figures dans un document Grist.</li></ul></section>
-<section style="flex: 1 1 320px; min-width: 0; background: #FFFFFF; border: 1px solid #E1E3E8; padding: 28px; display: flex; flex-direction: column; gap: 12px"><h2 style="margin: 0; font-size: 24px; line-height: 1.2; font-weight: 700; color: #1A2270">Ce qui arrive</h2><ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 16px; color: #2A2D33"><li>Les comptes et la connexion.</li><li>L'agent par connecteur : décrire une figure à son agent d'IA, qui la prépare au format de FigDot.</li><li>La revue en ligne : relire, commenter et approuver une figure avant sa publication.</li><li>D'autres formes : diagramme de flux, radar.</li></ul></section>
+<section style="flex: 1 1 320px; min-width: 0; background: #FFFFFF; border: 2px solid #374AC8; padding: 28px; display: flex; flex-direction: column; gap: 12px"><h2 style="margin: 0; font-size: 24px; line-height: 1.2; font-weight: 700; color: #1A2270">Ce qui marche aujourd'hui</h2><ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 16px; color: #2A2D33"><li>Une collection publique de démonstration, <a href="/aop-fromages-63/">Les AOP fromagères du Puy-de-Dôme</a> : trois figures, chacune avec son cadrage, ses options, ses définitions et ses sources datées et liées.</li><li>Pour chaque figure : une adresse stable par option, les données (CSV), l'image (SVG, PNG), et un code d'intégration que l'on compose module par module.</li><li>8 formes au catalogue : nuage en essaim, graphique de pentes, carte, nuage de points, frise, barres d'étendue, matrice, barres.</li><li>Le widget FigDot pour Grist, qui prépare des brouillons de figures dans un document Grist.</li></ul></section>
+<section style="flex: 1 1 320px; min-width: 0; background: #FFFFFF; border: 1px solid #E1E3E8; padding: 28px; display: flex; flex-direction: column; gap: 12px"><h2 style="margin: 0; font-size: 24px; line-height: 1.2; font-weight: 700; color: #1A2270">Ce qui arrive</h2><ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 10px; font-size: 16px; color: #2A2D33"><li>Les comptes et la connexion.</li><li>Votre charte tirée de vos documents : une charte graphique, un rapport ou un site, transformés en une charte que FigDot vérifie et que vous approuvez. Aujourd'hui, une charte s'écrit à la main au format de FigDot.</li><li>L'agent par connecteur : décrire une figure à son agent d'IA, qui la prépare au format de FigDot.</li><li>La revue en ligne : relire, commenter et approuver une figure avant sa publication.</li><li>D'autres formes : diagramme de flux, radar.</li></ul></section>
 </div>
 <p style="margin: 0; font-size: 16px; color: #2A2D33">Aucune date n'est promise. Pour en savoir plus, écrivez à <a href="mailto:contact@plurall.cc">contact@plurall.cc</a>.</p>
 <p style="margin: 0"><a href="/fr/" style="font-weight: 700">Revenir à l'accueil</a></p>

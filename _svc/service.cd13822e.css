@@ -39,13 +39,14 @@ a{color:var(--plurall-blue)}
 @media (max-width:860px){.fig-side{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:12px}}
 .fig-block{padding:4px 0 16px;border-bottom:1px solid var(--line);margin-bottom:14px}.fig-block:last-child{border-bottom:0}
 .fig-block p{margin:6px 0;font-size:14px;color:var(--ink-2)}
-.rules{list-style:none;margin:10px 0 0;padding:0}
-.rules a{display:block;text-decoration:none;color:var(--ink);font-size:15px;font-weight:500;padding:4px 0 10px 24px;position:relative}
-.rules a::before{content:"";position:absolute;left:0;top:9px;width:12px;height:12px;border-radius:50%;border:1.5px solid var(--ink-3);background:var(--paper)}
-.rules a[aria-current=true]::before{border-color:var(--plurall-blue);background:radial-gradient(circle,var(--plurall-blue) 0 3.5px,var(--paper) 4px)}
-.rules a[aria-current=true]{color:var(--plurall-blue-ink)}
-.rules .def{display:block;font-weight:400;font-size:14px;color:var(--ink-3);margin-top:2px}
-.rules a:focus-visible{outline:2px solid var(--plurall-blue);outline-offset:2px}
+.fd-opts{list-style:none;margin:10px 0 0;padding:0;font-family:var(--svc-font)}
+.fd-opts li{margin:0}
+.fd-opts a{display:block;text-decoration:none;color:var(--ink);font-size:15px;line-height:1.4;font-weight:500;padding:4px 0 10px 24px;position:relative;overflow-wrap:anywhere}
+.fd-opts a::before{content:"";position:absolute;left:0;top:7px;box-sizing:border-box;width:14px;height:14px;border-radius:50%;border:1.5px solid var(--ink-3);background:var(--paper)}
+.fd-opts a[aria-current=true]::before{border-color:var(--plurall-blue);background:radial-gradient(circle,var(--plurall-blue) 0 3.5px,var(--paper) 4px)}
+.fd-opts a[aria-current=true]{color:var(--plurall-blue-ink)}
+.fd-opts .fd-opt-def{display:block;font-weight:400;font-size:14px;color:var(--ink-3);margin-top:2px}
+.fd-opts a:focus-visible{outline:2px solid var(--plurall-blue);outline-offset:2px}
 .facts{margin:8px 0 0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;font-size:14px}
 .facts dt{color:var(--ink-3)}.facts dd{margin:0;color:var(--ink-2);overflow-wrap:anywhere}
 .dl{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:14px}

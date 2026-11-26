@@ -57,11 +57,11 @@
   "entries": [
    {
     "label": "communes de l’aire géographique",
-    "fill": "#2457A6"
+    "fill": "#374AC8"
    },
    {
     "label": "zone de production du lait et de fabrication",
-    "fill": "#5F8CCC"
+    "fill": "#4F63D0"
    }
   ],
   "notes": [
@@ -140,7 +140,7 @@
   ]
  },
  "theme": {
-  "name": "default",
+  "name": "plurall",
   "family": "\"Inter\", ui-sans-serif, system-ui, -apple-system, \"Segoe UI\", Helvetica, Arial, sans-serif"
  },
  "drawings": {
