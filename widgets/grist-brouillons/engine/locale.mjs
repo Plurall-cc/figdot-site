@@ -15,6 +15,8 @@ export const LABELS = {
     some_undated: "Some of what is shown is not dated.", source_undated: "date not recorded",
     not_measured: "not measured", and: "and",
     unlabelled_one: "{n} label not shown", unlabelled_other: "{n} labels not shown",
+    thin_links_one: "{n} link thinner than {px} px, drawn as a fine line", thin_links_other: "{n} links thinner than {px} px, drawn as fine lines",
+    radar_axis: "{axis}: from {min} (centre) to {max} (edge)", radar_axis_reversed: "{axis}: from {min} (edge) to {max} (centre), reversed",
     licence: "Licence", licence_unknown: "not recorded",
   },
   fr: {
@@ -23,6 +25,8 @@ export const LABELS = {
     some_undated: "Une partie de ce qui est montré n’est pas datée.", source_undated: "date non relevée",
     not_measured: "non mesuré", and: "et",
     unlabelled_one: "{n} étiquette non affichée", unlabelled_other: "{n} étiquettes non affichées",
+    thin_links_one: "{n} lien de moins de {px} px, dessiné au trait fin", thin_links_other: "{n} liens de moins de {px} px, dessinés au trait fin",
+    radar_axis: "{axis} : de {min} (centre) à {max} (bord)", radar_axis_reversed: "{axis} : de {min} (bord) à {max} (centre), sens inversé",
     licence: "Licence", licence_unknown: "non relevée",
   },
 };

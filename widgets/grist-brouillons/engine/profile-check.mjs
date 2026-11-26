@@ -214,6 +214,8 @@ export function capabilities(theme, { tokens } = {}) {
     traced("nuage", ["un point par ligne (trace.point, mise en avant)", "droite de repère (gris intermédiaire, pointillé du repère)", "graduations"]),
     traced("frise", ["une ligne par série (gris intermédiaire)", "un point par événement daté (mise en avant)", "graduations de dates"]),
     traced("essaim", ["un point par individu (trace.point), en retrait (gris intermédiaire) ou mis en avant", "étiquettes directes des points mis en avant", "graduations"]),
+    traced("radar", ["des axes ramenés à une même échelle (normalisation dite par le spec, écrite en note)", "une série mise en avant (trace, sommets), les autres au gris intermédiaire", "anneaux et axes au filet", "noms d'axes directs"]),
+    traced("flux", ["des nœuds (gris intermédiaire, mise en avant), des liens en bandes (filet de la charte, bordés du papier ; mis en avant)", "étiquettes directes des nœuds avec leur valeur", "liens trop fins au trait fin, et leur nombre dit"]),
     { form: "figure sur mesure", engine: false, status: "se construit", why: [],
       carries: ["tout jeton que le contrat nomme (couleurs, palettes, tailles, graisses, traits, espaces, trace)"],
       cannot: ["ce que le code de la figure fixerait lui-même : interdit, et vérifié par tests/literals.test.mjs"] },
@@ -229,7 +231,7 @@ export function capabilities(theme, { tokens } = {}) {
 // déclare, si elle veut être contrôlée, par `"capability"` dans figure.json (« carte », « figure sur
 // mesure »…). Sans déclaration, le moteur n'en sait rien : la figure reste refusée par son propre
 // dessin quand la charte lui manque (palette trop courte), jamais par ce verdict.
-export const CAPABILITIES = ["barres", "matrice", "carte", "pentes", "étendue", "nuage", "frise", "essaim", "figure sur mesure"];
+export const CAPABILITIES = ["barres", "matrice", "carte", "pentes", "étendue", "nuage", "frise", "essaim", "flux", "radar", "figure sur mesure"];
 
 // La capacité que demande une forme déclarative, d'après son spec. Une matrice peint ses classes avec la rampe
 // séquentielle de la charte, sauf si son spec nomme la palette divergente : elle ne dépend alors pas de la rampe.
